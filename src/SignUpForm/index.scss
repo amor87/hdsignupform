@@ -1,0 +1,35 @@
+@import "../styles/mixins";
+@import "../styles/colors";
+
+.SignUp-container {
+  padding-left: 16px;
+  padding-right: 16px;
+  padding-bottom: 16px;
+
+  button {
+    @include shadow-styles;
+    @include pointer-with-uppercase;
+    border: 0;
+    padding: 8px 40px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 17px;
+    width: 45%;
+
+    &.primary {
+      background-color: $purple;
+      color: $white;
+    }
+
+    &.secondary {
+      background-color: $white;
+      color: $black;
+    }
+  }
+
+  fieldset {
+    padding: 0;
+    margin: 0;
+    border: 0;
+  }
+}

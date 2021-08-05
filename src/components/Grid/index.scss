@@ -1,0 +1,33 @@
+@import "../../styles/mixins";
+@import "../../styles/svg";
+@import "../../styles/colors";
+@import "../../styles/global";
+
+.grid-row {
+  display: grid;
+  grid-template-rows: auto;
+  gap: 20px;
+  /* For mobile phones and tablets: */
+  grid-template-columns: 1fr;
+
+}
+
+.col {
+  @include align-self-flex-end;
+}
+
+@media only screen and (min-width: 768px) {
+  /* For desktop: */
+  .grid-row {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+span.has-error {
+  margin-bottom: $margin-bottom;
+  font-style: italic;
+  color: $red;
+  font-weight: 600;
+  font-size: small;
+  text-transform: none;
+}

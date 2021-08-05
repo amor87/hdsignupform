@@ -1,0 +1,36 @@
+@import "../../styles/mixins";
+@import "../../styles/svg";
+@import "../../styles/colors";
+@import "../../styles/global";
+
+.FieldInput-container {
+  @include flex-direction-column;
+
+  label {
+    @include flex-direction-column;
+    margin-bottom: $margin-bottom;
+    font-size: 0.9em;
+    text-transform: uppercase;
+  }
+
+  .input-element {
+    @include shadow-styles;
+  }
+
+
+  input {
+    @include input-styles;
+  }
+
+  select {
+    @include input-styles;
+    height: $height;
+    -moz-appearance:none; /* Firefox */
+    -webkit-appearance:none; /* Safari and Chrome */
+    appearance:none;
+    border-bottom-style: none;
+
+    background: $white url( $data-svg-prefix + map-get( $icons, "expand-arrow" ) ) no-repeat;
+    background-position: right 7px top 50%;
+  }
+}

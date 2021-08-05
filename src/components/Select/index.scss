@@ -1,0 +1,88 @@
+@import "../../styles/mixins";
+@import "../../styles/svg";
+@import "../../styles/colors";
+@import "../../styles/global";
+
+.Select-container {
+  text-transform: uppercase;
+
+  div[role=combobox] {
+    position: relative;
+
+    input {
+      @include pointer-with-uppercase;
+    }
+
+    div.arrow {
+      background: url( $data-svg-prefix + map-get( $icons, "expand-arrow" ) ) no-repeat;
+      position: absolute;
+      top: 37%;
+      right: 10px;
+      width: 10px;
+      height: 10px;
+      transition: transform 0.25s linear;
+    }
+
+  }
+
+  ul {
+    @include border-styles;
+    background-color: $white;
+    margin: 0;
+    list-style-type: none;
+    padding: 0;
+
+    li {
+      cursor: pointer;
+      height: $height;
+      padding-left: $padding-left;
+      font-size: small;
+      font-weight: 300;
+
+      &[aria-selected=true] {
+        font-weight: bolder;
+      }
+
+      &:hover {
+        background-color: $light-green;
+      }
+
+      span {
+        vertical-align: -moz-middle-with-baseline;
+        vertical-align: -webkit-baseline-middle;
+      }
+
+      &:not(:last-child) {
+        border-bottom-color: $light-green;
+        border-bottom-style: solid;
+        border-bottom-width: 1px;
+      }
+    }
+  }
+
+  &:not(.is-open) {
+    div.arrow {
+      -ms-transform: rotate(0deg);
+      -webkit-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+
+    ul {
+      display: none;
+    }
+  }
+
+  &.is-open {
+    div.arrow {
+      -ms-transform: rotate(90deg);
+      -webkit-transform: rotate(90deg);
+      transform: rotate(90deg);
+
+    }
+
+    input {
+      border-bottom-style: none;
+    }
+  }
+}
+

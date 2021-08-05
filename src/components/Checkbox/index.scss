@@ -1,0 +1,61 @@
+@import "../../styles/mixins";
+@import "../../styles/global";
+@import "../../styles/svg";
+@import "../../styles/colors";
+
+.Checkbox-container {
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 13px;
+  text-transform: uppercase;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  span.spanLabel {
+    vertical-align: middle;
+  }
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 22px;
+    width: 22px;
+    background-color: $white;
+
+  }
+
+  input:not(:checked) ~ .checkmark {
+    @include border-styles;
+    @include shadow-styles;
+  }
+
+  input:checked ~ .checkmark {
+    background-color: $purple;
+    outline: solid $purple 2px;
+
+    &:before {
+      position: absolute;
+      content: "";
+      height: 20px;
+      width: 20px;
+      background-image: coloredCheckbox(white, '15');
+      background-repeat: no-repeat;
+      left: 4px;
+      top: 4px;
+    }
+  }
+}

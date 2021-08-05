@@ -1,0 +1,51 @@
+@import "./colors";
+@import "./global";
+
+@mixin flex-direction-column {
+  display: flex;
+  flex-direction: column;
+}
+
+@mixin align-self-flex-end {
+  align-self: flex-end;
+}
+
+@mixin shadow-styles {
+  -webkit-box-shadow: 1px 2px 3px 2px $black;
+  box-shadow: 1px 2px 3px 2px $black;
+}
+
+@mixin pointer-with-uppercase {
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+@mixin border-styles {
+  // border-color: $light-green;
+  // border-style: solid;
+  // border-width: 2px;
+  //
+  border-style: none;
+  outline: solid $light-green 2px;
+}
+
+@mixin input-styles {
+  @include border-styles;
+
+  &:focus {
+    @include border-styles;
+  }
+
+  height: $height;
+  padding-left: $padding-left;
+
+  width: -webkit-fill-available;  /* Mozilla-based browsers will ignore this. */
+  width: stretch;
+  width: -moz-available;          /* WebKit-based browsers will ignore this. */
+
+  &.error {
+    border-style: none;
+    outline: solid $red 2px;
+    background-color: $light-red;
+  }
+}
